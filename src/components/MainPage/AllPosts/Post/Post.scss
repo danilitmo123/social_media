@@ -1,0 +1,43 @@
+.post {
+  display: flex;
+  flex-direction: row;
+  .post-text {
+    margin-right: 20px;
+  }
+  .like-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .like-count {
+      margin-right: 5px;
+    }
+    .like-icon {
+      width: 20px;
+      height: 20px;
+      &:hover {
+        animation: like 0.6s ease;
+      }
+    }
+  }
+}
+
+@keyframes like {
+  15% {
+    transform: translateX(2px);
+  }
+  30% {
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  65% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

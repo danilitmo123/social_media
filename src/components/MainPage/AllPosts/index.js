@@ -4,7 +4,10 @@ import Post from "./Post";
 
 import './AllPosts.scss'
 
-const AllPosts = () => {
+const AllPosts = ({state}) => {
+
+  const postItem = state.posts.map(post => <Post key={post.id} post={post.message} like={post.likeCount} />)
+
   return (
     <div className={'all-posts'}>
       <div className={'posts-title'}>My posts</div>
@@ -13,7 +16,7 @@ const AllPosts = () => {
         <div>Add Post</div>
       </div>
       <div>
-        <Post />
+        {postItem}
       </div>
     </div>
   );

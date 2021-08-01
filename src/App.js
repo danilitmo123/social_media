@@ -9,7 +9,7 @@ import MainPage from './components/MainPage'
 import './App.scss';
 import DialogsPage from "./components/DialogsPage";
 
-function App() {
+function App({state}) {
   return (
     <Router>
       <div className="App">
@@ -18,10 +18,10 @@ function App() {
         <div>
           <Switch>
             <Route path={'/profile'} exact={true}>
-              <MainPage />
+              <MainPage state={state.profilePage}/>
             </Route>
             <Route path={'/dialogs'}>
-              <DialogsPage />
+              <DialogsPage state={state.dialogPage} />
             </Route>
           </Switch>
         </div>
