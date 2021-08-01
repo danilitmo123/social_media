@@ -1,0 +1,17 @@
+@import './global';
+.App {
+  display: grid;
+  grid-template-areas:
+  'header header'
+  'menu content';
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  padding: 0 5%;
+  font-family: 'Montserrat', sans-serif;
+  grid-gap: 60px;
+}
+
+a {
+  text-decoration: none;
+  color: #151414;
+}

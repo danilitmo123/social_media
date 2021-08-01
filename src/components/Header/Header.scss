@@ -1,0 +1,9 @@
+@import "../../global";
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: header;
+  font-size: 30px;
+  border-bottom: 2px solid #282727;
+}

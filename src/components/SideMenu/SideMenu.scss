@@ -1,0 +1,33 @@
+@import "../../global";
+.side-menu {
+  grid-area: menu;
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      list-style-type: none;
+      height: 50px;
+      margin-bottom: 10px;
+      &:hover {
+        animation: border .2s linear;
+        border-bottom: 1px solid #151414;
+      }
+    }
+    .active {
+      font-weight: 700;
+    }
+  }
+}
+
+@keyframes border {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
