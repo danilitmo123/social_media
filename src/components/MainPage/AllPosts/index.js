@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Post from "./Post";
 
 import './AllPosts.scss'
 
-const AllPosts = ({state}) => {
+const AllPosts = ({state, addPost}) => {
+
+  const [message, setMessage] = useState('')
+
+  const handleMessage = (e) => {
+    setMessage(e.target.value)
+  }
+
+  const addPostHandler = () => {
+    addPost(message)
+    setMessage('')
+  }
 
   const postItem = state.posts.map(post => <Post key={post.id} post={post.message} like={post.likeCount} />)
 
@@ -12,8 +23,8 @@ const AllPosts = ({state}) => {
     <div className={'all-posts'}>
       <div className={'posts-title'}>My posts</div>
       <div className={'add-post'}>
-        <textarea />
-        <div>Add Post</div>
+        <textarea onChange={handleMessage} value={message}/>
+        <button onClick={addPostHandler}>Add Post</button>
       </div>
       <div>
         {postItem}
