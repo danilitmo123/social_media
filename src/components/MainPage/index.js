@@ -5,12 +5,12 @@ import AllPostsContainer from "./AllPosts/AllPostsContainer";
 
 import './MainContent.scss'
 
-const MainPage = ({store}) => {
+const MainPage = () => {
   return (
     <div className={'main-content'}>
       <div className={'content-title'}>Profile Page</div>
       <ProfileInfo />
-      <AllPostsContainer store={store}/>
+      <AllPostsContainer />
     </div>
   );
 };

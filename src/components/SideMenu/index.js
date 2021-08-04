@@ -18,6 +18,11 @@ const SideMenu = () => {
            Messages
          </li>
        </NavLink>
+       <NavLink to={'/users'}>
+         <li>
+           Users
+         </li>
+       </NavLink>
       </ul>
     </div>
   );

@@ -1,16 +1,23 @@
 import React from 'react';
-
+import {connect} from "react-redux";
 import {addPostActionCreator} from "../../../redux/reducer/profile-reducer";
 
 import AllPosts from "./index";
 
-const AllPostsContainer = ({store}) => {
-
-  const addPostHandler = (message) => {
-    store.dispatch(addPostActionCreator(message))
+const mapStateToProps = (state) => {
+  return {
+    state: state.profilePage.posts
   }
+}
 
-  return <AllPosts addPost={addPostHandler} state={store.getState().profilePage} />
-};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addPost: (message) => {
+      dispatch(addPostActionCreator(message))
+    }
+  }
+}
+
+const AllPostsContainer = connect(mapStateToProps, mapDispatchToProps)(AllPosts)
 
 export default AllPostsContainer;

@@ -1,0 +1,12 @@
+.users {
+  .users-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .users-wrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}

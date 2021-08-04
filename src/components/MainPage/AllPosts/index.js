@@ -17,7 +17,7 @@ const AllPosts = ({addPost, state}) => {
     setMessage('')
   }
 
-  const postItem = state.posts.map(post => <Post key={post.id} post={post.message} like={post.likeCount} />)
+  const postItem = state.map(post => <Post key={post.id} post={post.message} like={post.likeCount} />)
 
   return (
     <div className={'all-posts'}>

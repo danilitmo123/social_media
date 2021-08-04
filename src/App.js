@@ -6,10 +6,12 @@ import Header from "./components/Header";
 import SideMenu from "./components/SideMenu";
 import MainPage from './components/MainPage'
 import DialogsPageContainer from "./components/DialogsPage/DialogsPageContainer";
+import UsersPageContainer from "./components/UsersPage/UsersPageContainer";
 
 import './App.scss';
 
-function App({store}) {
+
+function App() {
   return (
     <Router>
       <div className="App">
@@ -18,10 +20,13 @@ function App({store}) {
         <div>
           <Switch>
             <Route path={'/profile'} exact={true}>
-              <MainPage store={store}/>
+              <MainPage />
             </Route>
             <Route path={'/dialogs'}>
-              <DialogsPageContainer store={store} />
+              <DialogsPageContainer />
+            </Route>
+            <Route path={'/users'}>
+              <UsersPageContainer />
             </Route>
           </Switch>
         </div>
