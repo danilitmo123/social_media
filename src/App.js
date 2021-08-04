@@ -9,7 +9,7 @@ import DialogsPage from "./components/DialogsPage";
 
 import './App.scss';
 
-function App({state, addPost}) {
+function App({state, dispatch}) {
   return (
     <Router>
       <div className="App">
@@ -18,10 +18,10 @@ function App({state, addPost}) {
         <div>
           <Switch>
             <Route path={'/profile'} exact={true}>
-              <MainPage state={state.profilePage} addPost={addPost}/>
+              <MainPage state={state.profilePage} dispatch={dispatch}/>
             </Route>
             <Route path={'/dialogs'}>
-              <DialogsPage state={state.dialogPage} />
+              <DialogsPage state={state.dialogPage} dispatch={dispatch} />
             </Route>
           </Switch>
         </div>

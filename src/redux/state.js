@@ -1,3 +1,6 @@
+import {profileReducer} from "./reducer/profile-reducer";
+import {dialogReducer} from "./reducer/dialog-reducer";
+
 export const store = {
   _state: {
     profilePage: {
@@ -8,20 +11,23 @@ export const store = {
       dialogs: [{id: 1, dialogUser: 'Danil'}]
     }
   },
+  _callSubscriber () {},
+
   getState () {
     return this._state
   },
-  addPost (message) {
-    const newPost = {
-      id: 5,
-      message,
-      likeCount: 0
-    }
-    this._state.profilePage.posts.push(newPost)
-    this._callSubscriber(this._state)
-  },
-  _callSubscriber () {},
   subscriber (observer) {
     this._callSubscriber = observer
+  },
+
+  dispatch (action) {
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.dialogPage = dialogReducer(this._state.dialogPage, action)
+
+    this._callSubscriber(this._state)
   }
 }
+
+
+
+

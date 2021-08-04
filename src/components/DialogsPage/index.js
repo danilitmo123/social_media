@@ -1,11 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
+
+import {addDialogMessageActionCreator} from "../../redux/reducer/dialog-reducer";
 
 import DialogItem from "./DialogItem";
-
-import './DialogsPage.scss'
 import MessageItem from "./MessageItem";
 
-const DialogsPage = ({state}) => {
+import './DialogsPage.scss'
+
+const DialogsPage = ({state, dispatch}) => {
+
+  const [message, setMessage] = useState('')
+
+  const handleMessage = (e) => {
+    setMessage(e.target.value)
+  }
+
+  const addMessageHandler = () => {
+    dispatch(addDialogMessageActionCreator(message))
+    setMessage('')
+  }
 
   const dialogItem = state.dialogs.map(dialog => <DialogItem key={dialog.id} id={dialog.id} user={dialog.dialogUser} />)
 
@@ -19,7 +32,11 @@ const DialogsPage = ({state}) => {
           {dialogItem}
         </div>
        <div>
-         {messageItem}
+         <div>{messageItem}</div>
+         <div>
+           <textarea onChange={handleMessage} value={message} />
+           <button onClick={addMessageHandler}>Отправить сообщение</button>
+         </div>
        </div>
       </div>
     </div>
