@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
 
-import {addDialogMessageActionCreator} from "../../redux/reducer/dialog-reducer";
-
 import DialogItem from "./DialogItem";
 import MessageItem from "./MessageItem";
 
 import './DialogsPage.scss'
 
-const DialogsPage = ({state, dispatch}) => {
+const DialogsPage = ({addMessage, state}) => {
 
   const [message, setMessage] = useState('')
 
@@ -16,7 +14,7 @@ const DialogsPage = ({state, dispatch}) => {
   }
 
   const addMessageHandler = () => {
-    dispatch(addDialogMessageActionCreator(message))
+    addMessage(message)
     setMessage('')
   }
 

@@ -5,11 +5,11 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Header from "./components/Header";
 import SideMenu from "./components/SideMenu";
 import MainPage from './components/MainPage'
-import DialogsPage from "./components/DialogsPage";
+import DialogsPageContainer from "./components/DialogsPage/DialogsPageContainer";
 
 import './App.scss';
 
-function App({state, dispatch}) {
+function App({store}) {
   return (
     <Router>
       <div className="App">
@@ -18,10 +18,10 @@ function App({state, dispatch}) {
         <div>
           <Switch>
             <Route path={'/profile'} exact={true}>
-              <MainPage state={state.profilePage} dispatch={dispatch}/>
+              <MainPage store={store}/>
             </Route>
             <Route path={'/dialogs'}>
-              <DialogsPage state={state.dialogPage} dispatch={dispatch} />
+              <DialogsPageContainer store={store} />
             </Route>
           </Switch>
         </div>

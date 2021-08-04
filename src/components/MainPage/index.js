@@ -1,16 +1,16 @@
 import React from 'react';
 
-import AllPosts from "./AllPosts";
+import ProfileInfo from "./ProfileInfo";
+import AllPostsContainer from "./AllPosts/AllPostsContainer";
 
 import './MainContent.scss'
-import ProfileInfo from "./ProfileInfo";
 
-const MainPage = ({state, dispatch}) => {
+const MainPage = ({store}) => {
   return (
     <div className={'main-content'}>
       <div className={'content-title'}>Profile Page</div>
       <ProfileInfo />
-      <AllPosts state={state} dispatch={dispatch}/>
+      <AllPostsContainer store={store}/>
     </div>
   );
 };

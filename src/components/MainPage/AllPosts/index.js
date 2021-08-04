@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 
-import {addPostActionCreator} from "../../../redux/reducer/profile-reducer";
-
 import Post from "./Post";
 
 import './AllPosts.scss'
 
-const AllPosts = ({state, dispatch}) => {
+const AllPosts = ({addPost, state}) => {
 
   const [message, setMessage] = useState('')
 
@@ -15,7 +13,7 @@ const AllPosts = ({state, dispatch}) => {
   }
 
   const addPostHandler = () => {
-    dispatch(addPostActionCreator(message))
+    addPost(message)
     setMessage('')
   }
 
