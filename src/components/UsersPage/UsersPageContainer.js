@@ -1,33 +1,23 @@
 import {connect} from "react-redux";
 
-import {subscribeUserAC, unsubscribeUserAC, setUsersAC, setTotalPageCountAC} from "../../redux/reducer/user-reducer";
+import {subscribeUserAC, unsubscribeUserAC, setUsersAC, setTotalPageCountAC, toggleSubProgressAC} from "../../redux/reducer/user-reducer";
 
 import UsersPage from "./index";
 
 const mapStateToProps = (state) => {
   return {
     state: state.userPage.users,
-    totalPageCount: state.userPage.totalPageCount
+    totalPageCount: state.userPage.totalPageCount,
+    subscribeProgress: state.userPage.subscribeProgress
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSubscribe: (userId) => {
-      dispatch(subscribeUserAC(userId))
-    },
-    onUnsubscribe: (userId) => {
-      dispatch(unsubscribeUserAC(userId))
-    },
-    onSetUsers: (users) => {
-      dispatch(setUsersAC(users))
-    },
-    onSetTotalPageCount: (totalCount) => {
-      dispatch(setTotalPageCountAC(totalCount))
-    }
-  }
-}
-
-const UsersPageContainer = connect(mapStateToProps, mapDispatchToProps)(UsersPage)
+const UsersPageContainer = connect(mapStateToProps,{
+  onSubscribe: subscribeUserAC,
+  onUnsubscribe: unsubscribeUserAC,
+  onSetUsers: setUsersAC,
+  onSetTotalPageCount: setTotalPageCountAC,
+  onToggleSubProgress: toggleSubProgressAC
+})(UsersPage)
 
 export default UsersPageContainer

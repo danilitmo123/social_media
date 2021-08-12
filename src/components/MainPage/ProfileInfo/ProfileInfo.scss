@@ -1,3 +1,18 @@
 .profile-info {
   margin-bottom: 20px;
+  display: flex;
+  .profile-photo {
+    width: 140px;
+    height: 140px;
+    margin-right: 30px;
+  }
+  .profile-description {
+    .info-block {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .block-title {
+      margin-right: 5px;
+    }
+  }
 }

@@ -1,15 +1,16 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
-import ProfileInfo from "./ProfileInfo";
 import AllPostsContainer from "./AllPosts/AllPostsContainer";
+import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
 
 import './MainContent.scss'
 
 const MainPage = () => {
+
   return (
     <div className={'main-content'}>
       <div className={'content-title'}>Profile Page</div>
-      <ProfileInfo />
+      <ProfileInfoContainer />
       <AllPostsContainer />
     </div>
   );

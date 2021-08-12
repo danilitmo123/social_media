@@ -1,23 +1,23 @@
 import React,{useEffect, useState} from 'react';
 
 import axios from 'axios'
+import {userAPI} from "../../api/api";
 
 import User from '../UsersPage/User'
 
 import './UserPage.scss'
 
-const UsersPage = ({state, totalPageCount, onSubscribe, onUnsubscribe, onSetUsers, onSetTotalPageCount}) => {
+const UsersPage = ({state, totalPageCount, onSubscribe, onUnsubscribe, onSetUsers, onSetTotalPageCount, subscribeProgress, onToggleSubProgress}) => {
 
   const [pageNumber, setPageNumber] = useState(1)
   const [disablePrevious, setDisablePrevious] = useState(true)
   const [disableNext, setDisableNext] = useState(false)
 
   const getUsers = () => {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=9`)
-      .then(res => {
-        onSetUsers(res.data)
-        onSetTotalPageCount(res.data.totalCount)
-      })
+    userAPI.getUsers(pageNumber).then(data => {
+      onSetUsers(data)
+      onSetTotalPageCount(data.totalCount)
+    })
   }
 
   const plusPageNumber = () => {
@@ -46,6 +46,8 @@ const UsersPage = ({state, totalPageCount, onSubscribe, onUnsubscribe, onSetUser
       isSubscribe={user.followed}
       onSubscribe={onSubscribe}
       onUnsubscribe={onUnsubscribe}
+      subscribeProgress={subscribeProgress}
+      onToggleSubProgress={onToggleSubProgress}
     />
   </div>)
 

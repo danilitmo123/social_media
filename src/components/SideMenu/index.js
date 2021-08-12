@@ -8,7 +8,7 @@ const SideMenu = () => {
   return (
     <div className={'side-menu'}>
       <ul>
-        <NavLink to={'/profile'} activeClassName={'active'}>
+        <NavLink to={'/profile/'} activeClassName={'active'}>
           <li>
             Profile
           </li>
